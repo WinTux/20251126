@@ -1,24 +1,34 @@
-﻿namespace Cliente
+﻿using Cliente.ConexionDatos;
+using System.Diagnostics;
+
+namespace Cliente
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly IRestConexionDatos restConexionDatos;
 
-        public MainPage()
+        public MainPage(IRestConexionDatos restConexionDatos)
         {
             InitializeComponent();
+            this.restConexionDatos = restConexionDatos;
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var platos = await restConexionDatos.ObtenerPlatos();
+
+            coleccionPlatosView.ItemsSource = platos;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        // Evento Add
+        private async void OnAddPlatoClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Debug.WriteLine("[EVENTO] Agregar plato");
+        }
+        // Evento clic sobre un plato
+        private async void OnPlatoSelected(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine("[EVENTO] Plato seleccionado");
         }
     }
 }
