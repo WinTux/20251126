@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cliente.Paginas.GestionPlatosPage"
+             Title="Gestion del plato">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Margin="20">
+        <Label Text="Acciones a realizar" FontSize="Large" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Path=plato.nombre}" Placeholder="Introduzca el nombre del plato"/>
+        <!-- Agregar botones-->
+        <Button Text="Guardar plato" Clicked="OnGuardarClicked"/>
+        <Button Text="Eliminar plato" Clicked="OnEliminarClicked"/>
+        <Button Text="Cancelar" Clicked="OnCancelarClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

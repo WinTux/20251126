@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Cliente.Paginas;
+using Microsoft.Extensions.Logging;
 
 namespace Cliente
 {
@@ -16,6 +17,7 @@ namespace Cliente
                 });
             builder.Services.AddSingleton<ConexionDatos.IRestConexionDatos, ConexionDatos.RestConexionDatos>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<GestionPlatosPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

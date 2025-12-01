@@ -9,7 +9,11 @@
     </ContentPage.ToolbarItems>
     <CollectionView x:Name="coleccionPlatosView"
                     SelectionMode="Single"
-                    SelectionChanged="OnPlatoSelected">
+                    SelectionChanged="OnPlatoSelected"
+                    Margin="30,0,30,0">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+        </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Label Text="{Binding nombre}" FontSize="Medium"/>
