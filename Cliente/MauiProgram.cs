@@ -15,7 +15,8 @@ namespace Cliente
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            builder.Services.AddSingleton<ConexionDatos.IRestConexionDatos, ConexionDatos.RestConexionDatos>();
+            //builder.Services.AddSingleton<ConexionDatos.IRestConexionDatos, ConexionDatos.RestConexionDatos>();
+            builder.Services.AddHttpClient<ConexionDatos.IRestConexionDatos, ConexionDatos.RestConexionDatos>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<GestionPlatosPage>();
 
